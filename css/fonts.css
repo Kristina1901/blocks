@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Roboto";
+  src: local(""), url("./fonts/Roboto-Bold.woff") format("woff"),
+    url("./fonts/Roboto-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local(""), url("./fonts/Roboto-Medium.woff") format("woff"),
+    url("./fonts/Roboto-Medium.woff") format("woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local(""), url("./fonts/Roboto-Regular.woff") format("woff"),
+    url("./fonts/Roboto-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: local(""), url("./fonts/OpenSans-Light.woff") format("woff"),
+    url("./fonts/OpenSans-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Bebas Neue";
+  src: local(""), url("./fonts/bebas-neue-bold.woff") format("woff"),
+    url("./fonts/bebas-neue-bold.woff2") format("woff2");
+  font-weight: 700;
+}
