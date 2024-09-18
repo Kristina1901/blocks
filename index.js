@@ -1,7 +1,7 @@
 const currentYear = new Date().getFullYear();
 document.getElementById("currentYear").textContent = `${currentYear}`;
 
-// List code
+// List of variables
 const heroList = document.getElementById("list");
 const arrowUp = document.getElementById("arrowUp");
 const arrowDown = document.getElementById("arrowDown");
@@ -15,6 +15,24 @@ function getName(fullName) {
   const regex = /^(.+?)(?:\s+\d-Year|\s+\d-Device|\s+\d+\/\d+|\/|$)/;
   const match = fullName.match(regex);
   return match ? match[1].trim() : fullName.trim();
+}
+function unhideArrowBlock() {
+  heroList.addEventListener("click", (event) => {
+    if (event.target && event.target.closest(".hero__button")) {
+      setTimeout(() => {
+        const browser = detectBrowser();
+        if (browser === "Microsoft Edge" || browser === "Chrome") {
+          arrowDown.classList.add("visible");
+        } else {
+          arrowUp.classList.add("visible");
+        }
+      }, 1500);
+    }
+  });
+}
+function getFullSum(percentage, sum) {
+  const numberPercentage = parseFloat(percentage.replace("%", ""));
+  return (sum * 100) / numberPercentage;
 }
 
 function getLicensePeriod(licenseName) {
@@ -36,20 +54,6 @@ async function fetchData() {
   }
 }
 
-function unhideArrowBlock() {
-  heroList.addEventListener("click", (event) => {
-    if (event.target && event.target.closest(".hero__button")) {
-      setTimeout(() => {
-        const browser = detectBrowser();
-        if (browser === "Microsoft Edge" || browser === "Chrome") {
-          arrowDown.classList.add("visible");
-        } else {
-          arrowUp.classList.add("visible");
-        }
-      }, 1500);
-    }
-  });
-}
 function detectBrowser() {
   const userAgent = navigator.userAgent;
 
@@ -67,19 +71,27 @@ function getList(array) {
     const li = document.createElement("li");
     li.className = "hero__item";
     li.innerHTML = `
-         <div class="hero__price-block">
+         <div class="${
+           item.price_key.includes("%")
+             ? "hero__price-discont"
+             : "hero__price-block"
+         }">
         <div class="hero__bestPrice" style="display: ${
           item.is_best ? "block" : "none"
         }">Best value</div>
         <div class="hero__discount" style="display: ${
           item.price_key.includes("%") ? "block" : "none"
-        }"><span class="hero__discount-rate">${item.price_key}</span></div>
+        }"><span class="hero__discount-rate">${item.price_key}</span>
+        </div>
         <p class ="hero__price-details">
         <span class="hero__item-amount">${item.amount}</span> 
         <span class="hero__item-licensePeriod">/${getLicensePeriod(
           item.license_name
         )}</span>  
-        </p>      
+        </p>   
+         <p class="hero__fullAmount" style="display: ${
+           item.price_key.includes("%") ? "block" : "none"
+         }">${getFullSum(item.price_key, item.amount)}%</p>   
         </div>
          <div class="hero__text">
          <p>${getName(item.name_display)}</p>
