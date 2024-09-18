@@ -1,7 +1,7 @@
 const currentYear = new Date().getFullYear();
 document.getElementById("currentYear").textContent = `${currentYear}`;
 
-// List code
+// List of variables
 const heroList = document.getElementById("list");
 const arrowUp = document.getElementById("arrowUp");
 const arrowDown = document.getElementById("arrowDown");
