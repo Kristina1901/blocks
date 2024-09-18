@@ -43,8 +43,9 @@ function unhideArrowBlock() {
         const browser = detectBrowser();
         if (browser === "Microsoft Edge" || browser === "Chrome") {
           arrowDown.classList.add("visible");
+        } else {
+          arrowUp.classList.add("visible");
         }
-        arrowUp.classList.add("visible");
       }, 1500);
     }
   });
