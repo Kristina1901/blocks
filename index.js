@@ -56,7 +56,6 @@ async function fetchData() {
 
 function detectBrowser() {
   const userAgent = navigator.userAgent;
-
   if (userAgent.includes("Firefox")) {
     return "Firefox";
   } else if (userAgent.includes("Edg")) {
