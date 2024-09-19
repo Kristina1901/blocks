@@ -219,7 +219,7 @@
   height: 101px;
   background-image: url("../img/discount.svg");
   position: absolute;
-  top: 0;
+  top: -1px;
   left: 1px;
   transform: translate(-15px, -13px);
   color: white;
