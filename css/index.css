@@ -220,7 +220,7 @@
   background-image: url("../img/discount.svg");
   position: absolute;
   top: 0;
-  left: 0;
+  left: 1px;
   transform: translate(-15px, -13px);
   color: white;
   font-family: "Bebas Neue";
