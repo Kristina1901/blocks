@@ -90,7 +90,7 @@ function getList(array) {
         </p>   
          <p class="hero__fullAmount" style="display: ${
            item.price_key.includes("%") ? "block" : "none"
-         }">${getFullSum(item.price_key, item.amount)}%</p>   
+         }">${getFullSum(item.price_key, item.amount)}</p>   
         </div>
          <div class="hero__text">
          <p>${getName(item.name_display)}</p>
